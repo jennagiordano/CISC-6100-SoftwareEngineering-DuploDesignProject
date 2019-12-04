@@ -240,8 +240,6 @@ export class POV extends Component {
                 </Form.Group> : null}
             </Form.Group>
           </Form.Row>
-
-          
         </Form>
       </div>
 
@@ -250,8 +248,11 @@ export class POV extends Component {
 }
 
 
+// to - do:
 //add arrows
 //complete diagrams from move(), getCurrentLocation(), getCurrentOrientation()
 //clean up console logs
 //email professor about what ive done
 //email professor about testing
+//add more usable functionality for up/down directions, pass correct matrices based on input 
+//define orientation / location / tilt right left / turn up down etc as matrices
