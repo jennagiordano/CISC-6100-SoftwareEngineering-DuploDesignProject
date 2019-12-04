@@ -12,7 +12,7 @@ export default class App extends Component {
     return (
       <Layout>
         <Route exact path='/' component={POV} />
-      />
+      
       </Layout>
     );
   }
