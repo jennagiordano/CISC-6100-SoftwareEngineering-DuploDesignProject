@@ -290,7 +290,7 @@ export class POV extends Component {
       console.log("User did not supply a known MoveDirection, look update failed.");
 
       //do not update location matrix
-      break;
+      return;
     }
 
   }
