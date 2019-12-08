@@ -688,7 +688,6 @@ export class POV extends Component {
 
     // to - do:
     //finish portfolio - 
-    //make activity diagrams from  move() look() getCurrentOrientation() getCurrentLocation()
     //create unit test proposal for POV class 
     //create version 2 storyboards 
     //record video of POV code
