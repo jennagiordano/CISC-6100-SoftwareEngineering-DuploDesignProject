@@ -173,7 +173,7 @@ export class POV extends Component {
         //display function call information in console
         console.log("2.) In the case statement, user wants to move up, calling Matrix Multiply and passing Up matrix");
 
-        //call MatrixMultiple() function and pass Up matrix
+        //call MatrixMultiply() function and pass Up matrix
         //set return value equal to orientation matrix
         this.state.orientation = this.MatrixMultiply(this.state.orientation, this.state.Up);
         break;
@@ -181,7 +181,7 @@ export class POV extends Component {
         //display function call information in console
         console.log("2.) In the case statement, user wants to move down, calling Matrix Multiply and passing Down matrix");
 
-        //call MatrixMultiple() function and pass Down matrix
+        //call MatrixMultiply() function and pass Down matrix
         //set return value equal to orientation matrix
         this.state.orientation = this.MatrixMultiply(this.state.orientation, this.state.Down);
         break;
@@ -189,7 +189,7 @@ export class POV extends Component {
         //display function call information in console
         console.log("2.) In the case statement, user wants tilt left, calling Matrix Multiply and passing TiltLeft matrix");
 
-        //call MatrixMultiple() function and pass TiltLeft matrix
+        //call MatrixMultiply() function and pass TiltLeft matrix
         //set return value equal to orientation matrix
         this.state.orientation = this.MatrixMultiply(this.state.orientation, this.state.TiltRight);
         break;
@@ -197,7 +197,7 @@ export class POV extends Component {
         //display function call information in console
         console.log("2.) In the case statement, user wants tilt right, calling Matrix Multiply and passing TiltRight matrix");
 
-        //call MatrixMultiple() function and pass TiltRight matrix
+        //call MatrixMultiply() function and pass TiltRight matrix
         //set return value equal to orientation matrix
         this.state.orientation = this.MatrixMultiply(this.state.orientation, this.state.TiltLeft);
         break;
@@ -205,7 +205,7 @@ export class POV extends Component {
         //display function call information in console
         console.log("2.) In the case statement, user wants turn left, calling Matrix Multiply and passing TurnLeft matrix");
 
-        //call MatrixMultiple() function and pass TurnLeft matrix
+        //call MatrixMultiply() function and pass TurnLeft matrix
         //set return value equal to orientation matrix
         this.state.orientation = this.MatrixMultiply(this.state.orientation, this.state.TurnLeft);
         break;
@@ -213,7 +213,7 @@ export class POV extends Component {
         //display function call information in console
         console.log("2.) In the case statement, user wants turn right, calling Matrix Multiply and passing TurnRight matrix");
 
-        //call MatrixMultiple() function and pass TurnRight matrix
+        //call MatrixMultiply() function and pass TurnRight matrix
         //set return value equal to orientation matrix
         this.state.orientation = this.MatrixMultiply(this.state.orientation, this.state.TurnRight);
         break;
