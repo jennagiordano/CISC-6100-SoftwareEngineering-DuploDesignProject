@@ -191,7 +191,7 @@ export class POV extends Component {
 
         //call MatrixMultiply() function and pass TiltLeft matrix
         //set return value equal to orientation matrix
-        this.state.orientation = this.MatrixMultiply(this.state.orientation, this.state.TiltRight);
+        this.state.orientation = this.MatrixMultiply(this.state.orientation, this.state.TiltLeft);
         break;
       case ViewDirection = "tiltright":
         //display function call information in console
@@ -199,7 +199,7 @@ export class POV extends Component {
 
         //call MatrixMultiply() function and pass TiltRight matrix
         //set return value equal to orientation matrix
-        this.state.orientation = this.MatrixMultiply(this.state.orientation, this.state.TiltLeft);
+        this.state.orientation = this.MatrixMultiply(this.state.orientation, this.state.TiltRight);
         break;
       case ViewDirection = "turnleft":
         //display function call information in console
