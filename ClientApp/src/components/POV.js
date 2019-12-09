@@ -44,9 +44,6 @@ export class POV extends Component {
 
   //define on Look button click method
   handleLookClick = () => {
-    //display function call information in console
-    console.log("===================================================================")
-    console.log("-----------------------LOOK() FUNCTION CALL-----------------------")
 
     //set state of Look() activity diagram depending on previous state
     //aka if user clicks button and activity diagram is not visible, it will become visible
@@ -66,15 +63,16 @@ export class POV extends Component {
     //this is a test to see if Look calls correctly based on user input,
     //in finalized version on POV class, down will be computed based on a key
     //user enters that is defined in a common file
-    this.Look("down")
+    if (value == true) {
+      //display function call information in console
+      console.log("==============================================================")
+      console.log("---------------------LOOK() FUNCTION CALL---------------------")
+      this.Look("down")
+    }
   }
 
   //define on Move button click method
   handleMoveClick = () => {
-    //display function call information in console
-    console.log("===================================================================")
-    console.log("-----------------------MOVE() FUNCTION CALL-----------------------")
-    var value = !this.state.showMoveData
 
     //set state of Move() activity diagram depending on previous state
     //aka if user clicks button and activity diagram is not visible, it will become visible
@@ -82,6 +80,7 @@ export class POV extends Component {
     //set state of all other activity diagrams to false
     //do this so that if user clicks move button and look activity diagram is showing, look
     //activity diagram will be cleared from the screen and so on
+    var value = !this.state.showMoveData
     this.setState({
       showMoveData: value,
       showLookData: false,
@@ -93,14 +92,16 @@ export class POV extends Component {
     //this is a test to see if Move calls correctly based on user input,
     //in finalized version on POV class, Forward will be computed based on a key
     //user enters that is defined in a common file
-    this.Move("Forward")
+    if (value == true) {
+      //display function call information in console
+      console.log("==============================================================")
+      console.log("---------------------MOVE() FUNCTION CALL---------------------")
+      this.Move("Forward")
+    }
   }
 
   //define on GetCurrentLocation button click method
   handleGetCurrentLocation = () => {
-    //display function call information in console
-    console.log("===================================================================")
-    console.log("----------------GETCURRENTLOCATION() FUNCTION CALL----------------")
 
     //set state of GetCurrentLocation() activity diagram depending on previous state
     //aka if user clicks button and activity diagram is not visible, it will become visible
@@ -115,15 +116,19 @@ export class POV extends Component {
       showLookData: false,
       showGetOrientationData: false
     })
-    //call GetCurrentLocation function 
-    this.GetCurrentLocation()
+
+    if (value == true) {
+      //display function call information in console
+      console.log("=============================================================")
+      console.log("-------------GETCURRENTLOCATION() FUNCTION CALL--------------")
+      //call GetCurrentLocation function 
+      this.GetCurrentLocation()
+    }
   }
 
   //define on GetCurrentOrientation button click method
   handleGetCurrentOrientation = () => {
-    //display function call information in console
-    console.log("===================================================================")
-    console.log("----------------GETCURRENTORIENTATION() FUNCTION CALL----------------")
+
 
     //set state of GetCurrentOrientation() activity diagram depending on previous state
     //aka if user clicks button and activity diagram is not visible, it will become visible
@@ -138,20 +143,27 @@ export class POV extends Component {
       showGetLocationData: false,
       showLookData: false
     })
-    //call GetCurrentOrientation function 
-    this.GetCurrentOrientation()
+    if (value == true) {
+      //display function call information in console
+      console.log("=============================================================")
+      console.log("------------GETCURRENTORIENTATION() FUNCTION CALL------------")
+
+      //call GetCurrentOrientation function 
+      this.GetCurrentOrientation()
+    }
+
   }
 
   //define Look() function
+  //public function
+  //return type - void
   //takes 1 parameter
   //View Direction - either up,down,tiltLeft, tiltRight, turnLeft, turnRight
   Look = (ViewDirection) => {
 
     //display function call information in console
     //display current ViewDirection
-    console.log(`In the Look function, calling MatrixMultiply function and passing proper direction
-      matrix based on the move the user makes. The result of this function call will be set to the Orientation matrix. 
-      The current ViewDirection = ${ViewDirection}`);
+    console.log(`1.) In the Look function, calling MatrixMultiply function and passing proper direction matrix based on the move the user makes. The result of this function call will be set to the Orientation matrix. The current ViewDirection = ${ViewDirection}`);
 
     //add logic / error handling functionality 
     //switch on ViewDirection user specifies
@@ -159,7 +171,7 @@ export class POV extends Component {
       //if view direction is up
       case ViewDirection = "up":
         //display function call information in console
-        console.log("In the case statement, user wants to move up, calling Matrix Multiply and passing Up matrix");
+        console.log("2.) In the case statement, user wants to move up, calling Matrix Multiply and passing Up matrix");
 
         //call MatrixMultiple() function and pass Up matrix
         //set return value equal to orientation matrix
@@ -167,7 +179,7 @@ export class POV extends Component {
         break;
       case ViewDirection = "down":
         //display function call information in console
-        console.log("In the case statement, user wants to move down, calling Matrix Multiply and passing Down matrix");
+        console.log("2.) In the case statement, user wants to move down, calling Matrix Multiply and passing Down matrix");
 
         //call MatrixMultiple() function and pass Down matrix
         //set return value equal to orientation matrix
@@ -175,7 +187,7 @@ export class POV extends Component {
         break;
       case ViewDirection = "tiltleft":
         //display function call information in console
-        console.log("In the case statement, user wants tilt left, calling Matrix Multiply and passing TiltLeft matrix");
+        console.log("2.) In the case statement, user wants tilt left, calling Matrix Multiply and passing TiltLeft matrix");
 
         //call MatrixMultiple() function and pass TiltLeft matrix
         //set return value equal to orientation matrix
@@ -183,7 +195,7 @@ export class POV extends Component {
         break;
       case ViewDirection = "tiltright":
         //display function call information in console
-        console.log("In the case statement, user wants tilt right, calling Matrix Multiply and passing TiltRight matrix");
+        console.log("2.) In the case statement, user wants tilt right, calling Matrix Multiply and passing TiltRight matrix");
 
         //call MatrixMultiple() function and pass TiltRight matrix
         //set return value equal to orientation matrix
@@ -191,7 +203,7 @@ export class POV extends Component {
         break;
       case ViewDirection = "turnleft":
         //display function call information in console
-        console.log("In the case statement, user wants turn left, calling Matrix Multiply and passing TurnLeft matrix");
+        console.log("2.) In the case statement, user wants turn left, calling Matrix Multiply and passing TurnLeft matrix");
 
         //call MatrixMultiple() function and pass TurnLeft matrix
         //set return value equal to orientation matrix
@@ -199,7 +211,7 @@ export class POV extends Component {
         break;
       case ViewDirection = "turnright":
         //display function call information in console
-        console.log("In the case statement, user wants turn right, calling Matrix Multiply and passing TurnRight matrix");
+        console.log("2.) In the case statement, user wants turn right, calling Matrix Multiply and passing TurnRight matrix");
 
         //call MatrixMultiple() function and pass TurnRight matrix
         //set return value equal to orientation matrix
@@ -207,15 +219,16 @@ export class POV extends Component {
         break;
       default:
         //display function call information in console
-        console.log("User did not supply a known ViewDirection, look update failed.")
+        console.log("2.) In the case statement, user did not supply a known ViewDirection, look update failed.")
 
         //do not update orientation matrix
         break;
     }
-
   }
 
   //define MatrixMultiply() function
+  //private function
+  //return type - matrix
   //takes 2 parameters
   //orientation matrix, rotation matrix
   MatrixMultiply(orientation, rotation) {
@@ -224,8 +237,7 @@ export class POV extends Component {
     try {
 
       //display function call information in console
-      console.log(`Based on the current state of the orientation matrix and the rotation matrix,
-      calculate the new point of view of the user and set it to a temporary variable.`)
+      console.log(`3.) Based on the current state of the orientation matrix and the rotation matrix, calculate the new point of view of the user and set it to a temporary variable.`)
 
       //perform calculations
       //save newly calculate orientation to a temp variable
@@ -236,17 +248,14 @@ export class POV extends Component {
       //checkValidView(temp)
 
       //display function call information in console
-      console.log(`Call function provided by Team Design, and pass the view value to checkValidView(temp). 
-      This function will return whether or not this view is valid. If this function returns true, assign temp to orientation
-      and return orientation. Otherwise, fall into catch statement.`)
+      console.log(`4.) Call function provided by Team Design, and pass the view value to checkValidView(temp). This function will return whether or not this view is valid. If this function returns true, assign temp to orientation and return orientation. Otherwise, fall into catch statement.`)
 
       //if checkValidView(temp) returns true, return updated orientation matrix
       return orientation;
     }
     catch{
       //display function call information in console
-      console.log(`In the MatrixMultiply catch statement, this means the view that was calculated was not valid. MatrixMultiply() will
-      return un-updated orientation matrix`);
+      console.log(`5.) In the MatrixMultiply catch statement, this means the view that was calculated was not valid. MatrixMultiply() will return un-updated orientation matrix`);
 
       //if checkValidView(temp) returns false, return un-updated orientation matrix
       return orientation;
@@ -254,22 +263,22 @@ export class POV extends Component {
   }
 
   //define Move() function
+  //public function
+  //return type - void
   //takes 1 parameter
   //MoveDirection - either forward or backward indicator
   Move = (MoveDirection) => {
 
     //display function call information in console
     //display current MoveDirection
-    console.log(`In the Move function, calling Translate function and passing proper MoveDirection
-    matrix based on the move the user makes. The result of this function call will be set to the Location matrix. 
-    The current MoveDirection = ${MoveDirection}`);
+    console.log(`1.) In the Move function, calling Translate function and passing proper MoveDirection matrix based on the move the user makes. The result of this function call will be set to the Location matrix. The current MoveDirection = ${MoveDirection}`);
 
     //add logic / error handling functionality 
     //if user indicates they want to move forward
     if (MoveDirection == "Forward") {
 
       //display function call information in console
-      console.log("In the if statement, user wants move forward, calling Translate() and passing 0 as move value");
+      console.log("2.) In the if statement, user wants move forward, calling Translate() and passing 0 as move value");
 
       //call Translate() function and pass 0 indicataing forward movement
       //set return value equal to locatio matrix
@@ -278,7 +287,7 @@ export class POV extends Component {
     else if (MoveDirection == "Backward") {
 
       //display function call information in console
-      console.log("In the if statement, user wants move backward, calling Translate() and passing 1 as move value");
+      console.log("2.) In the if statement, user wants move backward, calling Translate() and passing 1 as move value");
 
       //call Translate() function and pass 1 indicataing backward movement
       //set return value equal to location matrix
@@ -287,7 +296,7 @@ export class POV extends Component {
     else {
 
       //display function call information in console
-      console.log("User did not supply a known MoveDirection, look update failed.");
+      console.log("2.) In the else statement, user did not supply a known MoveDirection, look update failed.");
 
       //do not update location matrix
       return;
@@ -296,18 +305,19 @@ export class POV extends Component {
   }
 
   //define Translate() function
+  //private function
+  //return type - matrix
   //takes 3 parameters
   //orientation matrix, location matrix, integer value for direction 
   Translate = (orientation, location, direction) => {
 
     //display function call information in console
-    console.log("In Translate() function. This function is called by move function.")
+    console.log("3.) In Translate() function. This function is called by move function.")
 
     //add error handling functionality  
     try {
       //display function call information in console
-      console.log(`Based on the current state of the location and orientation matrices and the 
-      value of direction, calculate the new position of the user and set it to a temporary variable.`)
+      console.log(`4.) Based on the current state of the location and orientation matrices and the value of direction, calculate the new position of the user and set it to a temporary variable.`)
 
       //perform calculations
       //save newly calculate location to a temp variable
@@ -318,17 +328,14 @@ export class POV extends Component {
       //checkValidMove(temp)
 
       //display function call information in console
-      console.log(`Call function provided by Team Design, and pass the location value to checkValidMove(temp). 
-      This function will return whether or not this move is valid. If this function returns true, assign temp to location
-      and return location. Otherwise, fall into catch statement.`)
+      console.log(`5.) Call function provided by Team Design, and pass the location value to checkValidMove(temp). This function will return whether or not this move is valid. If this function returns true, assign temp to location and return location. Otherwise, fall into catch statement.`)
 
       //if checkValidMove(temp) returns true, return updated location matrix
       return location;
     }
     catch{
       //display function call information in console
-      console.log(`In the Translate() catch statement, this means the move that was calculated was not valid. Translate() will
-      return un-updated location matrix`);
+      console.log(`6.) In the Translate() catch statement, this means the move that was calculated was not valid. Translate() will return un-updated location matrix`);
 
       //if checkValidMove(temp) returns false, return un-updated location matrix
       return location;
@@ -336,18 +343,22 @@ export class POV extends Component {
   }
 
   //define GetCurrentLocation() function
+  //public function
+  //return type - matrix
   GetCurrentLocation() {
     //display function call information in console
-    console.log("In GetCurrentLocation() function. This function returns current location to requestor.");
+    console.log("1.) In GetCurrentLocation() function. This function returns current location to requestor.");
 
     //return location matrix
     return this.state.location;
   }
 
   //define GetCurrentOrientation() function
+  //public function
+  //return type - matrix
   GetCurrentOrientation() {
     //display function call information in console
-    console.log("In GetCurrentOrientation() function. This function returns current orientation to requestor.");
+    console.log("1.) In GetCurrentOrientation() function. This function returns current orientation to requestor.");
 
     //return orientation matrix
     return this.state.orientation;
@@ -393,129 +404,129 @@ export class POV extends Component {
             <Form.Group as={Col} controlId="look()">
               {this.state.showLookData ?
                 <Form.Group >
-                  <Form.Row as={Col} style={{ border: "3px black solid", marginLeft: '22%', marginTop: "2%", width: "20%" }}>
+                  <Form.Row as={Col} style={{ border: "3px black solid", marginLeft: '22%', marginTop: "2%", width: "50%" }}>
                     Look(direction) is called and is passed the new direction the user wants to look
                   </Form.Row>
                   <Form.Row style={{ marginLeft: '8%' }}>
-                    <span as={Col} style={{ marginTop: "2%", width: "10%" }}>&#8601;</span>
-                    <span as={Col} style={{ marginTop: "2%", width: "10%" }}>&#8601;</span>
-                    <span as={Col} style={{ marginTop: "2%", width: "10%" }}>&#8595;</span>
-                    <span as={Col} style={{ marginTop: "2%", width: "10%" }}>&#8595;</span>
-                    <span as={Col} style={{ marginTop: "2%", width: "10%" }}>&#8600;</span>
-                    <span as={Col} style={{ marginTop: "2%", width: "10%" }}>&#8600;</span>
+                    <span as={Col} style={{ marginTop: "2%", width: "15%" }}>&#8601;</span>
+                    <span as={Col} style={{ marginTop: "2%", width: "15%" }}>&#8601;</span>
+                    <span as={Col} style={{ marginTop: "2%", width: "15%" }}>&#8595;</span>
+                    <span as={Col} style={{ marginTop: "2%", width: "15%" }}>&#8595;</span>
+                    <span as={Col} style={{ marginTop: "2%", width: "15%" }}>&#8600;</span>
+                    <span as={Col} style={{ marginTop: "2%", width: "15%" }}>&#8600;</span>
                   </Form.Row>
                   <Form.Row>
-                    <div as={Col} style={{ border: "3px black solid", marginTop: "2%", width: "10%", marginRight: '1%' }}>
-                      Look(direction) is passed a look up indicator.
+                    <div as={Col} style={{ border: "3px black solid", marginTop: "2%", width: "15%", marginRight: '1%' }}>
+                      Look() is passed a look up indicator.
                     </div>
-                    <div as={Col} style={{ border: "3px black solid", marginTop: "2%", width: "10%", marginRight: '1%' }}>
-                      Look(direction) is passed a look down indicator.
+                    <div as={Col} style={{ border: "3px black solid", marginTop: "2%", width: "15%", marginRight: '1%' }}>
+                      Look() is passed a look down indicator.
                     </div>
-                    <div as={Col} style={{ border: "3px black solid", marginTop: "2%", width: "10%", marginRight: '1%' }}>
-                      Look(direction) is passed a tilt left indicator.
+                    <div as={Col} style={{ border: "3px black solid", marginTop: "2%", width: "15%", marginRight: '1%' }}>
+                      Look() is passed a tilt left indicator.
                     </div>
-                    <div as={Col} style={{ border: "3px black solid", marginTop: "2%", width: "10%", marginRight: '1%' }}>
-                      Look(direction) is passed a tilt right indicator.
+                    <div as={Col} style={{ border: "3px black solid", marginTop: "2%", width: "15%", marginRight: '1%' }}>
+                      Look() is passed a tilt right indicator.
                     </div>
-                    <div as={Col} style={{ border: "3px black solid", marginTop: "2%", width: "10%", marginRight: '1%' }}>
-                      Look(direction) is passed a turn left indicator.
+                    <div as={Col} style={{ border: "3px black solid", marginTop: "2%", width: "15%", marginRight: '1%' }}>
+                      Look() is passed a turn left indicator.
                     </div>
-                    <div as={Col} style={{ border: "3px black solid", marginTop: "2%", width: "10%" }}>
-                      Look(direction) is passed a turn right indicator.
+                    <div as={Col} style={{ border: "3px black solid", marginTop: "2%", width: "15%" }}>
+                      Look() is passed a turn right indicator.
                     </div>
                   </Form.Row>
                   <Form.Row style={{ marginLeft: '8%' }}>
-                    <span as={Col} style={{ marginTop: "2%", width: "10%" }}>&#8595;</span>
-                    <span as={Col} style={{ marginTop: "2%", width: "10%" }}>&#8595;</span>
-                    <span as={Col} style={{ marginTop: "2%", width: "10%" }}>&#8595;</span>
-                    <span as={Col} style={{ marginTop: "2%", width: "10%" }}>&#8595;</span>
-                    <span as={Col} style={{ marginTop: "2%", width: "10%" }}>&#8595;</span>
-                    <span as={Col} style={{ marginTop: "2%", width: "10%" }}>&#8595;</span>
+                    <span as={Col} style={{ marginTop: "2%", width: "15%" }}>&#8601;</span>
+                    <span as={Col} style={{ marginTop: "2%", width: "15%" }}>&#8601;</span>
+                    <span as={Col} style={{ marginTop: "2%", width: "15%" }}>&#8595;</span>
+                    <span as={Col} style={{ marginTop: "2%", width: "15%" }}>&#8595;</span>
+                    <span as={Col} style={{ marginTop: "2%", width: "15%" }}>&#8600;</span>
+                    <span as={Col} style={{ marginTop: "2%", width: "15%" }}>&#8600;</span>
                   </Form.Row>
                   <Form.Row>
-                    <div as={Col} style={{ border: "3px black solid", marginTop: "2%", width: "10%", marginRight: '1%' }}>
-                      Look(direction) calls MatrixMultiply() and passes the orientation matrix and up matrix.
+                    <div as={Col} style={{ border: "3px black solid", marginTop: "2%", width: "15%", marginRight: '1%' }}>
+                      Look() calls Matrix<br />Multiply() and passes the orientation matrix and up matrix.
                     </div>
-                    <div as={Col} style={{ border: "3px black solid", marginTop: "2%", width: "10%", marginRight: '1%' }}>
-                      Look(direction) calls MatrixMultiply() and passes the orientation matrix and down matrix.
+                    <div as={Col} style={{ border: "3px black solid", marginTop: "2%", width: "15%", marginRight: '1%' }}>
+                      Look() calls Matrix<br />Multiply() and passes the orientation matrix and down matrix.
                     </div>
-                    <div as={Col} style={{ border: "3px black solid", marginTop: "2%", width: "10%", marginRight: '1%' }}>
-                      Look(direction) calls MatrixMultiply() and passes the orientation matrix and tilt left matrix.
+                    <div as={Col} style={{ border: "3px black solid", marginTop: "2%", width: "15%", marginRight: '1%' }}>
+                      Look() calls Matrix<br />Multiply() and passes the orientation matrix and tilt left matrix.
                     </div>
-                    <div as={Col} style={{ border: "3px black solid", marginTop: "2%", width: "10%", marginRight: '1%' }}>
-                      Look(direction) calls MatrixMultiply() and passes the orientation matrix and tilt right matrix.
+                    <div as={Col} style={{ border: "3px black solid", marginTop: "2%", width: "15%", marginRight: '1%' }}>
+                      Look() calls Matrix<br />Multiply() and passes the orientation matrix and tilt right matrix.
                     </div>
-                    <div as={Col} style={{ border: "3px black solid", marginTop: "2%", width: "10%", marginRight: '1%' }}>
-                      Look(direction) calls MatrixMultiply() and passes the orientation matrix and turn left matrix.
+                    <div as={Col} style={{ border: "3px black solid", marginTop: "2%", width: "15%", marginRight: '1%' }}>
+                      Look() calls Matrix<br />Multiply() and passes the orientation matrix and turn left matrix.
                     </div>
-                    <div as={Col} style={{ border: "3px black solid", marginTop: "2%", width: "10%" }}>
-                      Look(direction) calls MatrixMultiply() and passes the orientation matrix and turn right matrix.
+                    <div as={Col} style={{ border: "3px black solid", marginTop: "2%", width: "15%" }}>
+                      Look() calls Matrix<br />Multiply() and passes the orientation matrix and turn right matrix.
                     </div>
                   </Form.Row>
                   <Form.Row style={{ marginLeft: '8%' }}>
-                    <span as={Col} style={{ marginTop: "2%", width: "10%" }}>&#8600;</span>
-                    <span as={Col} style={{ marginTop: "2%", width: "10%" }}>&#8600;</span>
-                    <span as={Col} style={{ marginTop: "2%", width: "10%" }}>&#8595;</span>
-                    <span as={Col} style={{ marginTop: "2%", width: "10%" }}>&#8595;</span>
-                    <span as={Col} style={{ marginTop: "2%", width: "10%" }}>&#8601;</span>
-                    <span as={Col} style={{ marginTop: "2%", width: "10%" }}>&#8601;</span>
+                    <span as={Col} style={{ marginTop: "2%", width: "15%" }}>&#8600;</span>
+                    <span as={Col} style={{ marginTop: "2%", width: "15%" }}>&#8600;</span>
+                    <span as={Col} style={{ marginTop: "2%", width: "15%" }}>&#8595;</span>
+                    <span as={Col} style={{ marginTop: "2%", width: "15%" }}>&#8595;</span>
+                    <span as={Col} style={{ marginTop: "2%", width: "15%" }}>&#8601;</span>
+                    <span as={Col} style={{ marginTop: "2%", width: "15%" }}>&#8601;</span>
                   </Form.Row>
-                  <Form.Row as={Col} style={{ border: "3px black solid", marginLeft: '22%', marginTop: "2%", width: "20%" }}>
+                  <Form.Row as={Col} style={{ border: "3px black solid", marginLeft: '22%', marginTop: "2%", width: "50%" }}>
                     MatrixMultiply(orientation, direction) calculates the new orientation and saves it to a temporary variable.
                   </Form.Row>
-                  <Form.Row style={{ marginLeft: '31%', marginTop: "2%", width: "20%" }}>
+                  <Form.Row style={{ marginLeft: '41%', marginTop: "2%", width: "20%" }}>
                     <span >&#8595;</span>
                   </Form.Row>
-                  <Form.Row as={Col} style={{ border: "3px black solid", marginLeft: '22%', marginTop: "2%", width: "20%" }}>
+                  <Form.Row as={Col} style={{ border: "3px black solid", marginLeft: '22%', marginTop: "2%", width: "50%" }}>
                     The temporary value is sent to checkValidView(temp).
                   </Form.Row>
                   <Form.Row>
-                    <span as={Col} style={{ marginTop: "2%", width: "20%", marginLeft: '22%' }}>&#8601;</span>
+                    <span as={Col} style={{ marginTop: "2%", width: "20%", marginLeft: '35%' }}>&#8601;</span>
                     <span as={Col} style={{ marginTop: "2%", width: "20%" }}>&#8600;</span>
                   </Form.Row>
-                  <Form.Row style={{ marginLeft: '13.5%' }}>
-                    <div as={Col} style={{ border: "3px green solid", marginTop: "2%", width: "20%", marginRight: '2%' }}>
+                  <Form.Row style={{ marginLeft: '12%' }}>
+                    <div as={Col} style={{ border: "3px green solid", marginTop: "2%", width: "40%", marginRight: '2%' }}>
                       checkValidView(temp) returns true (the new View is valid).
                     </div>
-                    <div as={Col} style={{ border: "3px red solid", marginTop: "2%", width: "20%" }}>
+                    <div as={Col} style={{ border: "3px red solid", marginTop: "2%", width: "40%" }}>
                       checkValidView(temp) returns false (the new View is not valid).
                     </div>
                   </Form.Row>
                   <Form.Row>
-                    <span as={Col} style={{ marginTop: "2%", width: "20%", marginLeft: '22%' }}>&#8595;</span>
+                    <span as={Col} style={{ marginTop: "2%", width: "20%", marginLeft: '35%' }}>&#8595;</span>
                     <span as={Col} style={{ marginTop: "2%", width: "20%" }}>&#8595;</span>
                   </Form.Row>
-                  <Form.Row style={{ marginLeft: '13.5%' }}>
-                    <div as={Col} style={{ border: "3px green solid", marginTop: "2%", width: "20%", marginRight: '2%' }}>
+                  <Form.Row style={{ marginLeft: '23%' }}>
+                    <div as={Col} style={{ border: "3px green solid", marginTop: "2%", width: "30%", marginRight: '2%' }}>
                       Assign the temporary value to the orientation matrix
                     </div>
-                    <div as={Col} style={{ border: "3px red solid", marginTop: "2%", width: "20%" }}>
+                    <div as={Col} style={{ border: "3px red solid", marginTop: "2%", width: "30%" }}>
                       The program will fall into MatrixMultiply's catch statement.
                     </div>
                   </Form.Row>
                   <Form.Row>
-                    <span as={Col} style={{ marginTop: "2%", width: "20%", marginLeft: '22%' }}>&#8595;</span>
+                    <span as={Col} style={{ marginTop: "2%", width: "20%", marginLeft: '35%' }}>&#8595;</span>
                     <span as={Col} style={{ marginTop: "2%", width: "20%" }}>&#8595;</span>
                   </Form.Row>
-                  <Form.Row style={{ marginLeft: '13.5%' }}>
-                    <div as={Col} style={{ border: "3px green solid", marginTop: "2%", width: "20%", marginRight: '2%' }}>
+                  <Form.Row style={{ marginLeft: '23%' }}>
+                    <div as={Col} style={{ border: "3px green solid", marginTop: "2%", width: "30%", marginRight: '2%' }}>
                       Return the updated orientation matrix.
                     </div>
-                    <div as={Col} style={{ border: "3px red solid", marginTop: "2%", width: "20%" }}>
+                    <div as={Col} style={{ border: "3px red solid", marginTop: "2%", width: "30%" }}>
                       Return the un-updated orientation matrix to Look().
                     </div>
                   </Form.Row>
                   <Form.Row>
-                    <span as={Col} style={{ marginTop: "2%", width: "20%", marginLeft: '22%' }}>&#8600;</span>
+                    <span as={Col} style={{ marginTop: "2%", width: "20%", marginLeft: '35%' }}>&#8600;</span>
                     <span as={Col} style={{ marginTop: "2%", width: "20%" }}>&#8601;</span>
                   </Form.Row>
-                  <Form.Row style={{ border: "3px black solid", marginLeft: '22%', marginTop: "2%", width: "20%", paddingLeft: '2%' }}>
+                  <Form.Row style={{ border: "3px black solid", marginLeft: '22%', marginTop: "2%", width: "50%", paddingLeft: '2%' }}>
                     Return to Look() function
                   </Form.Row>
-                  <Form.Row style={{ marginLeft: '31%', marginTop: "2%", width: "20%" }}>
-                    <span style={{}}>&#8595;</span>
+                  <Form.Row style={{ marginLeft: '45%', marginTop: "2%", width: "20%" }}>
+                    <span>&#8595;</span>
                   </Form.Row>
-                  <Form.Row as={Col} style={{ border: "3px black solid", marginLeft: '22%', marginTop: "2%", width: "20%" }}>
+                  <Form.Row as={Col} style={{ border: "3px black solid", marginLeft: '22%', marginTop: "2%", width: "50%" }}>
                     Look() function call finished.
                   </Form.Row>
                 </Form.Group> : null}
@@ -526,95 +537,95 @@ export class POV extends Component {
             <Form.Group as={Col} controlId="move()">
               {this.state.showMoveData ?
                 <Form.Group >
-                  <Form.Row as={Col} style={{ border: "3px black solid", marginLeft: '10%', marginTop: "2%", width: "20%" }}>
+                  <Form.Row as={Col} style={{ border: "3px black solid", marginLeft: '10%', marginTop: "2%", width: "50%" }}>
                     Move(direction) is called and is passed the new direction the user wants to move.
                   </Form.Row>
                   <Form.Row>
-                    <span as={Col} style={{ marginTop: "2%", width: "20%", marginLeft: '9.2%' }}>&#8601;</span>
+                    <span as={Col} style={{ marginTop: "2%", width: "20%", marginLeft: '23%' }}>&#8601;</span>
                     <span as={Col} style={{ marginTop: "2%", width: "20%" }}>&#8600;</span>
                   </Form.Row>
                   <Form.Row>
-                    <div as={Col} style={{ border: "3px black solid", marginTop: "2%", width: "20%", marginRight: '1%' }}>
+                    <div as={Col} style={{ border: "3px black solid", marginTop: "2%", width: "40%", marginRight: '1%' }}>
                       Move(direction) is passed a move forward indicator.
                     </div>
-                    <div as={Col} style={{ border: "3px black solid", marginTop: "2%", width: "20%" }}>
+                    <div as={Col} style={{ border: "3px black solid", marginTop: "2%", width: "40%" }}>
                       Move(direction) is passed a move backward indicator.
                     </div>
                   </Form.Row>
                   <Form.Row>
-                    <span as={Col} style={{ marginTop: "2%", width: "20%", marginLeft: '9.2%' }}>&#8595;</span>
+                    <span as={Col} style={{ marginTop: "2%", width: "20%", marginLeft: '23%' }}>&#8595;</span>
                     <span as={Col} style={{ marginTop: "2%", width: "20%" }}>&#8595;</span>
                   </Form.Row>
                   <Form.Row>
-                    <div as={Col} style={{ border: "3px black solid", marginTop: "2%", width: "20%", marginRight: '1%' }}>
-                      Move(direction) calls Translate(orientation, location, direction and passes the orientation matrix, location matrix,
+                    <div as={Col} style={{ border: "3px black solid", marginTop: "2%", width: "40%", marginRight: '1%' }}>
+                      Move(direction) calls Translate(orientation, location, direction) and passes the orientation matrix, location matrix,
                       and direction value of 0 for Forward.
                     </div>
-                    <div as={Col} style={{ border: "3px black solid", marginTop: "2%", width: "20%" }}>
+                    <div as={Col} style={{ border: "3px black solid", marginTop: "2%", width: "40%" }}>
                       Move(direction) calls Translate(orientation, location, direction and passes the orientation matrix, location matrix,
                       and direction value of 1 for Backward.
                   </div>
                   </Form.Row>
                   <Form.Row>
-                    <span as={Col} style={{ marginTop: "2%", width: "20%", marginLeft: '9.2%' }}>&#8600;</span>
+                    <span as={Col} style={{ marginTop: "2%", width: "20%", marginLeft: '23%' }}>&#8600;</span>
                     <span as={Col} style={{ marginTop: "2%", width: "20%" }}>&#8601;</span>
                   </Form.Row>
-                  <Form.Row as={Col} style={{ border: "3px black solid", marginLeft: '10%', marginTop: "2%", width: "20%" }}>
+                  <Form.Row as={Col} style={{ border: "3px black solid", marginLeft: '10%', marginTop: "2%", width: "50%" }}>
                     Translate(orientation, location, direction) calculates the new location and saves it to a temporary variable.
                   </Form.Row>
-                  <Form.Row style={{ marginLeft: '19%', marginTop: "2%", width: "20%" }}>
-                    <span style={{}}>&#8595;</span>
+                  <Form.Row style={{ marginLeft: '33%', marginTop: "2%", width: "20%" }}>
+                    <span>&#8595;</span>
                   </Form.Row>
-                  <Form.Row as={Col} style={{ border: "3px black solid", marginLeft: '10%', marginTop: "2%", width: "20%" }}>
+                  <Form.Row as={Col} style={{ border: "3px black solid", marginLeft: '10%', marginTop: "2%", width: "50%" }}>
                     The temporary value is sent to checkValidMove(temp).
                   </Form.Row>
                   <Form.Row>
-                    <span as={Col} style={{ marginTop: "2%", width: "20%", marginLeft: '9.2%' }}>&#8601;</span>
+                    <span as={Col} style={{ marginTop: "2%", width: "20%", marginLeft: '23%' }}>&#8601;</span>
                     <span as={Col} style={{ marginTop: "2%", width: "20%" }}>&#8600;</span>
                   </Form.Row>
                   <Form.Row>
-                    <div as={Col} style={{ border: "3px green solid", marginTop: "2%", width: "20%", marginRight: '1%' }}>
+                    <div as={Col} style={{ border: "3px green solid", marginTop: "2%", width: "40%", marginRight: '1%' }}>
                       checkValidMove(temp) returns true (the new Move is valid).
                     </div>
-                    <div as={Col} style={{ border: "3px red solid", marginTop: "2%", width: "20%" }}>
+                    <div as={Col} style={{ border: "3px red solid", marginTop: "2%", width: "40%" }}>
                       checkValidMove(temp) returns false (the new Move is not valid).
                     </div>
                   </Form.Row>
                   <Form.Row>
-                    <span as={Col} style={{ marginTop: "2%", width: "20%", marginLeft: '9.2%' }}>&#8595;</span>
+                    <span as={Col} style={{ marginTop: "2%", width: "20%", marginLeft: '23%' }}>&#8595;</span>
                     <span as={Col} style={{ marginTop: "2%", width: "20%" }}>&#8595;</span>
                   </Form.Row>
                   <Form.Row>
-                    <div as={Col} style={{ border: "3px green solid", marginTop: "2%", width: "20%", marginRight: '1%' }}>
+                    <div as={Col} style={{ border: "3px green solid", marginTop: "2%", width: "40%", marginRight: '1%' }}>
                       Assign the temporary value to the location matrix.
                     </div>
-                    <div as={Col} style={{ border: "3px red solid", marginTop: "2%", width: "20%" }}>
+                    <div as={Col} style={{ border: "3px red solid", marginTop: "2%", width: "40%" }}>
                       The program will fall into Translate's catch statement.
                     </div>
                   </Form.Row>
                   <Form.Row>
-                    <span as={Col} style={{ marginTop: "2%", width: "20%", marginLeft: '9.2%' }}>&#8595;</span>
+                    <span as={Col} style={{ marginTop: "2%", width: "20%", marginLeft: '23%' }}>&#8595;</span>
                     <span as={Col} style={{ marginTop: "2%", width: "20%" }}>&#8595;</span>
                   </Form.Row>
                   <Form.Row>
-                    <div as={Col} style={{ border: "3px green solid", marginTop: "2%", width: "20%", marginRight: '1%' }}>
+                    <div as={Col} style={{ border: "3px green solid", marginTop: "2%", width: "40%", marginRight: '1%' }}>
                       Return the updated location matrix.
                     </div>
-                    <div as={Col} style={{ border: "3px red solid", marginTop: "2%", width: "20%" }}>
+                    <div as={Col} style={{ border: "3px red solid", marginTop: "2%", width: "40%" }}>
                       Return the un-updated location matrix to Move().
                     </div>
                   </Form.Row>
                   <Form.Row>
-                    <span as={Col} style={{ marginTop: "2%", width: "20%", marginLeft: '9.2%' }}>&#8600;</span>
+                    <span as={Col} style={{ marginTop: "2%", width: "20%", marginLeft: '23%' }}>&#8600;</span>
                     <span as={Col} style={{ marginTop: "2%", width: "20%" }}>&#8601;</span>
                   </Form.Row>
-                  <Form.Row style={{ border: "3px black solid", marginTop: "2%", marginLeft: '10%', width: "20%", paddingLeft: '2%' }}>
+                  <Form.Row style={{ border: "3px black solid", marginTop: "2%", marginLeft: '10%', width: "50%", paddingLeft: '2%' }}>
                     Return to Move() function
                   </Form.Row>
-                  <Form.Row style={{ marginLeft: '19%', marginTop: "2%", width: "20%" }}>
+                  <Form.Row style={{ marginLeft: '33%', marginTop: "2%", width: "20%" }}>
                     <span> &#8595;</span>
                   </Form.Row>
-                  <Form.Row as={Col} style={{ border: "3px black solid", marginLeft: '10%', marginTop: "2%", width: "20%" }}>
+                  <Form.Row as={Col} style={{ border: "3px black solid", marginLeft: '10%', marginTop: "2%", width: "50%" }}>
                     Move() function call finished.
                   </Form.Row>
                 </Form.Group> : null}
@@ -626,25 +637,25 @@ export class POV extends Component {
             <Form.Group as={Col} controlId="getCurrentLocation()">
               {this.state.showGetLocationData ?
                 <Form.Group >
-                  <Form.Row as={Col} style={{ border: "3px black solid", marginLeft: '10%', marginTop: "2%", width: "20%" }}>
+                  <Form.Row as={Col} style={{ border: "3px black solid", marginLeft: '10%', marginTop: "2%", width: "40%" }}>
                     GetCurrentLocation() is called.
                   </Form.Row>
                   <Form.Row style={{ marginLeft: '19%', marginTop: "2%", width: "20%" }}>
                     <span style={{}}>&#8595;</span>
                   </Form.Row>
-                  <Form.Row as={Col} style={{ border: "3px black solid", marginLeft: '10%', marginTop: "2%", width: "20%" }}>
+                  <Form.Row as={Col} style={{ border: "3px black solid", marginLeft: '10%', marginTop: "2%", width: "40%" }}>
                     GetCurrentLocation() accesses private variable location matrix.
                   </Form.Row>
                   <Form.Row style={{ marginLeft: '19%', marginTop: "2%", width: "20%" }}>
                     <span style={{}}>&#8595;</span>
                   </Form.Row>
-                  <Form.Row as={Col} style={{ border: "3px black solid", marginLeft: '10%', marginTop: "2%", width: "20%" }}>
+                  <Form.Row as={Col} style={{ border: "3px black solid", marginLeft: '10%', marginTop: "2%", width: "40%" }}>
                     GetCurrentLocation() returns value of location matrix.
                   </Form.Row>
                   <Form.Row style={{ marginLeft: '19%', marginTop: "2%", width: "20%" }}>
                     <span style={{}}>&#8595;</span>
                   </Form.Row>
-                  <Form.Row as={Col} style={{ border: "3px black solid", marginLeft: '10%', marginTop: "2%", width: "20%" }}>
+                  <Form.Row as={Col} style={{ border: "3px black solid", marginLeft: '10%', marginTop: "2%", width: "40%" }}>
                     GetCurrentLocation() function call finished.
                   </Form.Row>
                 </Form.Group> : null}
@@ -655,25 +666,25 @@ export class POV extends Component {
             <Form.Group as={Col} controlId="getCurrentOrientation()">
               {this.state.showGetOrientationData ?
                 <Form.Group >
-                  <Form.Row as={Col} style={{ border: "3px black solid", marginLeft: '10%', marginTop: "2%", width: "20%" }}>
+                  <Form.Row as={Col} style={{ border: "3px black solid", marginLeft: '10%', marginTop: "2%", width: "40%" }}>
                     GetCurrentOrientation() is called.
                   </Form.Row>
                   <Form.Row style={{ marginLeft: '19%', marginTop: "2%", width: "20%" }}>
                     <span style={{}}>&#8595;</span>
                   </Form.Row>
-                  <Form.Row as={Col} style={{ border: "3px black solid", marginLeft: '10%', marginTop: "2%", width: "20%" }}>
+                  <Form.Row as={Col} style={{ border: "3px black solid", marginLeft: '10%', marginTop: "2%", width: "40%" }}>
                     GetCurrentOrientation() accesses private variable orientation matrix.
                   </Form.Row>
                   <Form.Row style={{ marginLeft: '19%', marginTop: "2%", width: "20%" }}>
                     <span style={{}}>&#8595;</span>
                   </Form.Row>
-                  <Form.Row as={Col} style={{ border: "3px black solid", marginLeft: '10%', marginTop: "2%", width: "20%" }}>
+                  <Form.Row as={Col} style={{ border: "3px black solid", marginLeft: '10%', marginTop: "2%", width: "40%" }}>
                     GetCurrentOrientation() returns value of orientation matrix.
                   </Form.Row>
                   <Form.Row style={{ marginLeft: '19%', marginTop: "2%", width: "20%" }}>
                     <span style={{}}>&#8595;</span>
                   </Form.Row>
-                  <Form.Row as={Col} style={{ border: "3px black solid", marginLeft: '10%', marginTop: "2%", width: "20%" }}>
+                  <Form.Row as={Col} style={{ border: "3px black solid", marginLeft: '10%', marginTop: "2%", width: "40%" }}>
                     GetCurrentOrientation() function call finished.
                   </Form.Row>
                 </Form.Group> : null}
